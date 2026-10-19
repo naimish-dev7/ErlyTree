@@ -1,0 +1,1765 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#090d1a" id="metaThemeColor" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="JarvisAlarm" />
+  <title>JARVIS 3D — Mission Alarm &amp; Focus Tree</title>
+
+  <!-- High-Res Aesthetic Neon Arc Reactor Vector App Icon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23050814'/%3E%3Cstop offset='50%25' stop-color='%230b1329'/%3E%3Cstop offset='100%25' stop-color='%23111c3d'/%3E%3C/linearGradient%3E%3ClinearGradient id='coreGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='50%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3Cfilter id='neon' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='14' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='512' height='512' rx='128' fill='url(%23bg)'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='%236366f1' stroke-width='4' opacity='0.35' stroke-dasharray='10 14'/%3E%3Ccircle cx='256' cy='256' r='142' fill='none' stroke='%2338bdf8' stroke-width='8' filter='url(%23neon)'/%3E%3Ccircle cx='256' cy='256' r='108' fill='none' stroke='url(%23coreGlow)' stroke-width='14' filter='url(%23neon)'/%3E%3Cpolygon points='256,170 330,298 182,298' fill='none' stroke='%2338bdf8' stroke-width='8' filter='url(%23neon)'/%3E%3Ccircle cx='256' cy='256' r='38' fill='%23ffffff' filter='url(%23neon)'/%3E%3C/svg%3E" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23050814'/%3E%3Cstop offset='50%25' stop-color='%230b1329'/%3E%3Cstop offset='100%25' stop-color='%23111c3d'/%3E%3C/linearGradient%3E%3ClinearGradient id='coreGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='50%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3Cfilter id='neon' x='-20%25' y='-20%25' width='140%25' height='140%25'%3E%3CfeGaussianBlur stdDeviation='14' result='blur'/%3E%3CfeMerge%3E%3CfeMergeNode in='blur'/%3E%3CfeMergeNode in='SourceGraphic'/%3E%3C/feMerge%3E%3C/filter%3E%3C/defs%3E%3Crect width='512' height='512' rx='128' fill='url(%23bg)'/%3E%3Ccircle cx='256' cy='256' r='180' fill='none' stroke='%236366f1' stroke-width='4' opacity='0.35' stroke-dasharray='10 14'/%3E%3Ccircle cx='256' cy='256' r='142' fill='none' stroke='%2338bdf8' stroke-width='8' filter='url(%23neon)'/%3E%3Ccircle cx='256' cy='256' r='108' fill='none' stroke='url(%23coreGlow)' stroke-width='14' filter='url(%23neon)'/%3E%3Cpolygon points='256,170 330,298 182,298' fill='none' stroke='%2338bdf8' stroke-width='8' filter='url(%23neon)'/%3E%3Ccircle cx='256' cy='256' r='38' fill='%23ffffff' filter='url(%23neon)'/%3E%3C/svg%3E" />
+
+  <!-- Self-Contained Web App Manifest with Embedded Base64 Icons -->
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22JARVIS%203D%20Alarm%20%26%20Focus%22%2C%22short_name%22%3A%22JarvisAlarm%22%2C%22description%22%3A%223D%20Mission%20Alarm%20with%20Autonomous%20Fridge%20Scanner%20and%20Focus%20Tree%22%2C%22start_url%22%3A%22.%22%2C%22display%22%3A%22standalone%22%2C%22orientation%22%3A%22portrait%22%2C%22background_color%22%3A%22%23090d1a%22%2C%22theme_color%22%3A%22%236366f1%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20512%20512'%253E%253Crect%20width%3D'512'%20height%3D'512'%20rx%3D'128'%20fill%3D'%23090d1a'%2F%253E%253Ccircle%20cx%3D'256'%20cy%3D'256'%20r%3D'140'%20fill%3D'none'%20stroke%3D'%2338bdf8'%20stroke-width%3D'12'%2F%253E%253Ccircle%20cx%3D'256'%20cy%3D'256'%20r%3D'100'%20fill%3D'none'%20stroke%3D'%236366f1'%20stroke-width%3D'16'%2F%253E%253Cpolygon%20points%3D'256%2C180%20320%2C290%20192%2C290'%20fill%3D'none'%20stroke%3D'%2338bdf8'%20stroke-width%3D'8'%2F%253E%253Ccircle%20cx%3D'256'%20cy%3D'256'%20r%3D'32'%20fill%3D'%23ffffff'%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22192x192%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%2C%7B%22src%22%3A%22data%3Aimage%2Fsvg%2Bxml%2C%253Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20512%20512'%253E%253Crect%20width%3D'512'%20height%3D'512'%20rx%3D'128'%20fill%3D'%23090d1a'%2F%253E%253Ccircle%20cx%3D'256'%20cy%3D'256'%20r%3D'140'%20fill%3D'none'%20stroke%3D'%2338bdf8'%20stroke-width%3D'12'%2F%253E%253Ccircle%20cx%3D'256'%20cy%3D'256'%20r%3D'100'%20fill%3D'none'%20stroke%3D'%236366f1'%20stroke-width%3D'16'%2F%253E%253Cpolygon%20points%3D'256%2C180%20320%2C290%20192%2C290'%20fill%3D'none'%20stroke%3D'%2338bdf8'%20stroke-width%3D'8'%2F%253E%253Ccircle%20cx%3D'256'%20cy%3D'256'%20r%3D'32'%20fill%3D'%23ffffff'%2F%253E%253C%2Fsvg%253E%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fsvg%2Bxml%22%2C%22purpose%22%3A%22any%20maskable%22%7D%5D%7D" />
+
+  <!-- Three.js CDN with Safe Fallbacks -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    if (typeof THREE === 'undefined') {
+      document.write('<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"><\/script>');
+    }
+  </script>
+
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090d1a;
+      --shell-bg: rgba(13, 20, 38, 0.75);
+      --card-bg: rgba(21, 31, 58, 0.65);
+      --card-solid: #151f3a;
+      --card-inner: rgba(10, 15, 30, 0.7);
+      --border: rgba(99, 102, 241, 0.22);
+      --border-bright: rgba(99, 102, 241, 0.45);
+      --text: #f8fafc;
+      --text-dim: #94a3b8;
+      --primary: #6366f1;
+      --primary-gradient: linear-gradient(135deg, #6366f1, #a855f7);
+      --rose-gradient: linear-gradient(135deg, #f43f5e, #fb7185);
+      --lime-gradient: linear-gradient(135deg, #10b981, #84cc16);
+      --cyan: #38bdf8;
+      --emerald: #10b981;
+      --amber: #f59e0b;
+      --rose: #f43f5e;
+      --blur: 20px;
+    }
+
+    [data-theme="light"] {
+      --bg: #eef2ff;
+      --shell-bg: rgba(255, 255, 255, 0.85);
+      --card-bg: rgba(241, 245, 249, 0.85);
+      --card-solid: #ffffff;
+      --card-inner: rgba(255, 255, 255, 0.95);
+      --border: rgba(99, 102, 241, 0.2);
+      --border-bright: rgba(99, 102, 241, 0.4);
+      --text: #0f172a;
+      --text-dim: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      padding: 8px;
+      transition: background 0.35s ease, color 0.35s ease;
+    }
+
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .hidden { display: none !important; }
+
+    #threeBgCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app-frame {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 430px;
+      height: 94vh;
+      min-height: 720px;
+      background: var(--shell-bg);
+      backdrop-filter: blur(var(--blur));
+      -webkit-backdrop-filter: blur(var(--blur));
+      border: 1px solid var(--border);
+      border-radius: 36px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -15px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .app-header {
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      background: rgba(99, 102, 241, 0.12);
+      color: var(--primary);
+      border: 1px solid var(--border);
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--emerald);
+      animation: pulseDot 1.8s infinite;
+    }
+    @keyframes pulseDot { 0%,100%{opacity:1; transform:scale(1);} 50%{opacity:.4; transform:scale(0.8);} }
+
+    .badge.streak {
+      background: rgba(245, 158, 11, 0.14);
+      color: var(--amber);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 14px;
+      transition: transform 0.12s, border-color 0.2s;
+    }
+    .icon-btn:active { transform: scale(0.9); }
+
+    .stage-card {
+      position: relative;
+      margin: 12px 16px 8px 16px;
+      height: 195px;
+      border-radius: 26px;
+      border: 1px solid var(--border-bright);
+      background: radial-gradient(circle at 50% 30%, rgba(99, 102, 241, 0.15), rgba(9, 13, 26, 0.95));
+      overflow: hidden;
+      box-shadow: inset 0 0 30px rgba(0,0,0,0.5);
+    }
+    #threeStageCanvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      touch-action: none;
+      cursor: grab;
+    }
+    #threeStageCanvas:active { cursor: grabbing; }
+
+    .stage-hud-top {
+      position: absolute;
+      top: 12px;
+      left: 14px;
+      pointer-events: none;
+    }
+    .stage-clock {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1;
+      letter-spacing: -1px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    }
+    .stage-ampm {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-left: 4px;
+    }
+
+    .stage-hud-bottom {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .scene-pill {
+      display: flex;
+      gap: 3px;
+      background: rgba(9, 13, 26, 0.85);
+      padding: 3px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(8px);
+    }
+    .scene-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-dim);
+      font-size: 10px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .scene-btn.active {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding: 8px 16px 90px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .panel-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 14px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    }
+
+    .panel-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .hud-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+    .hud-box {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 9px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .hud-box:hover { border-color: var(--primary); }
+    .hud-label { font-size: 9px; font-weight: 700; color: var(--text-dim); text-transform: uppercase; }
+    .hud-val { font-size: 12px; font-weight: 800; margin: 2px 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .alarm-card {
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .alarm-card.disabled {
+      opacity: 0.55;
+      filter: grayscale(40%);
+    }
+    .alarm-time-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+    .alarm-digits {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .toggle-switch {
+      width: 46px;
+      height: 26px;
+      border-radius: 999px;
+      background: #334155;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .toggle-switch.active { background: var(--emerald); }
+    .toggle-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      transition: transform 0.2s;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    .toggle-switch.active .toggle-thumb { transform: translateX(20px); }
+
+    .alarm-meta-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 8px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .btn {
+      font-family: inherit;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 10px 14px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: transform 0.1s, opacity 0.2s;
+    }
+    .btn:active { transform: scale(0.95); }
+    .btn-primary {
+      background: var(--primary-gradient);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    }
+    .btn-secondary {
+      background: var(--card-inner);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-danger {
+      background: rgba(244, 63, 94, 0.15);
+      color: var(--rose);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+
+    .scanner-viewport {
+      width: 100%;
+      height: 190px;
+      border-radius: 18px;
+      background: #000;
+      border: 1px solid var(--border-bright);
+      position: relative;
+      overflow: hidden;
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #scannerVideo, #liveCameraVideo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .scanner-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .scanner-laser {
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      height: 2px;
+      background: var(--cyan);
+      box-shadow: 0 0 12px var(--cyan);
+      animation: laserSweep 2s ease-in-out infinite;
+    }
+    @keyframes laserSweep { 0%,100%{top:8%;opacity:.5;} 50%{top:90%;opacity:1;} }
+
+    .focus-timer-dial {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin: 10px 0;
+      text-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+    }
+    input[type="range"].focus-slider {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(99, 102, 241, 0.2);
+      outline: none;
+      margin: 14px 0 6px 0;
+    }
+    input[type="range"].focus-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a3e635, #10b981);
+      box-shadow: 0 0 12px rgba(163,230,53,0.5);
+      cursor: pointer;
+    }
+
+    .bottom-nav {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 72px;
+      background: var(--shell-bg);
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      padding: 0 16px;
+      backdrop-filter: blur(24px);
+      z-index: 20;
+    }
+    .nav-item {
+      flex: 1;
+      height: 48px;
+      border-radius: 14px;
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-dim);
+      font-size: 11px;
+      font-weight: 800;
+      font-family: inherit;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .nav-item.active {
+      background: rgba(99, 102, 241, 0.15);
+      border-color: var(--border);
+      color: var(--primary);
+    }
+
+    .modal-sheet {
+      position: absolute;
+      inset: 0;
+      background: rgba(6, 9, 19, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 50;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 12px;
+    }
+    .modal-box {
+      width: 100%;
+      max-height: 85vh;
+      background: var(--card-solid);
+      border: 1px solid var(--border-bright);
+      border-radius: 28px;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    input[type="text"], input[type="time"], input[type="number"], select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: var(--card-inner);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus, select:focus { border-color: var(--primary); }
+
+    #ringingOverlay {
+      position: absolute;
+      inset: 0;
+      z-index: 100;
+      background: rgba(7, 10, 20, 0.96);
+      backdrop-filter: blur(28px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+    }
+    .ringing-pulse {
+      animation: pulseGlow 1.2s infinite;
+    }
+    @keyframes pulseGlow {
+      0%,100%{ box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.6); }
+      50%{ box-shadow: 0 0 0 16px rgba(244, 63, 94, 0); }
+    }
+    .scan-trigger-btn {
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: #fff;
+      border: 5px solid var(--amber);
+      color: #0f172a;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
+      cursor: pointer;
+    }
+
+    #toastNotification {
+      position: absolute;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary-gradient);
+      color: #fff;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      z-index: 200;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      white-space: nowrap;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="threeBgCanvas"></canvas>
+
+  <div class="app-frame">
+    <header class="app-header">
+      <div style="display:flex; align-items:center; gap:8px;">
+        <span class="badge">
+          <span class="badge-dot"></span>
+          <span id="headerWatermarkText">Jarvis OS • Alarmy 3D</span>
+        </span>
+        <span class="badge streak">🔥 <span id="streakCountBadge">5d Streak</span></span>
+      </div>
+      <div style="display:flex; align-items:center; gap:8px;">
+        <button id="openOverviewBtn" class="icon-btn" title="Overview">✨</button>
+        <button id="themeToggleBtn" class="icon-btn" title="Toggle Theme">☀️</button>
+        <button id="openSettingsBtn" class="icon-btn" title="Settings">⚙️</button>
+      </div>
+    </header>
+
+    <section class="stage-card">
+      <canvas id="threeStageCanvas"></canvas>
+      <div class="stage-hud-top">
+        <div style="display:flex; align-items:baseline;">
+          <h1 id="heroClockText" class="stage-clock font-mono">07:00:00</h1>
+          <span id="heroAmPmText" class="stage-ampm font-mono">AM</span>
+        </div>
+        <p id="heroDateText" style="font-size:10px; color:var(--text-dim); font-weight:700; margin-top:3px;">Oct 19 • Autonomous Stage</p>
+      </div>
+
+      <div class="stage-hud-bottom">
+        <span class="badge" style="background:rgba(0,0,0,0.6); font-size:9px;">Touch to Orbit</span>
+        <div class="scene-pill">
+          <button data-scene-mode="chrono" class="scene-btn active">⚛️ Core</button>
+          <button data-scene-mode="fridge" class="scene-btn">🧊 Fridge</button>
+          <button data-scene-mode="bonsai" class="scene-btn">🌸 Bonsai</button>
+        </div>
+      </div>
+    </section>
+
+    <main class="content-area">
+      <section class="panel-card">
+        <div class="panel-title">
+          <span>⚡ Daily Briefing</span>
+          <button id="soundToggleHeaderBtn" class="btn btn-secondary" style="padding:4px 8px; font-size:10px;">🔊 Sound On</button>
+        </div>
+        <div class="hud-grid">
+          <div class="hud-box">
+            <p class="hud-label">Next Alarm</p>
+            <p id="overviewNextAlarm" class="hud-val font-mono">06:42 AM</p>
+            <p style="font-size:9px; color:var(--emerald); font-weight:700;">Active</p>
+          </div>
+          <div class="hud-box" id="overviewFridgeCardBtn">
+            <p class="hud-label">Scan Item</p>
+            <p id="overviewTargetItem" class="hud-val">🥛 Cold Milk</p>
+            <p style="font-size:9px; color:var(--primary); font-weight:700;">Tap to Swap</p>
+          </div>
+          <div class="hud-box">
+            <p class="hud-label">Tree Phase</p>
+            <p id="overviewTreePhase" class="hud-val" style="color:var(--emerald);">🌱 Sprout</p>
+            <p style="font-size:9px; color:var(--text-dim); font-weight:700;">25m Session</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="viewAlarms" style="display:flex; flex-direction:column; gap:12px;">
+        <div class="panel-title" style="margin-bottom:0;">
+          <span>Active Wake Missions</span>
+          <button id="openNewAlarmBtn" class="btn btn-primary" style="padding:6px 12px; font-size:11px;">＋ New Alarm</button>
+        </div>
+        <div id="alarmCardsContainer" style="display:flex; flex-direction:column; gap:10px;"></div>
+
+        <div class="panel-card" style="margin-top:6px;">
+          <div class="panel-title">
+            <span>🧊 Fridge Mission Item</span>
+            <button id="openReplaceItemModalBtn" class="btn btn-secondary" style="padding:4px 10px; font-size:10px;">🔄 Swap Item</button>
+          </div>
+
+          <div style="display:flex; align-items:center; gap:12px; background:var(--card-inner); padding:10px 14px; border-radius:16px; border:1px solid var(--border);">
+            <div id="targetItemEmoji" style="font-size:26px; width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:rgba(99,102,241,0.12); border-radius:12px; border:1px solid var(--border);">🥛</div>
+            <div style="flex:1;">
+              <p style="font-size:9px; color:var(--amber); font-weight:800; text-transform:uppercase;">Disarm Target</p>
+              <h4 id="targetItemName" style="font-size:13px; font-weight:800;">Cold Milk / Water Bottle</h4>
+              <p id="targetItemLocation" style="font-size:10px; color:var(--text-dim); font-weight:600;">Top Door Shelf</p>
+            </div>
+          </div>
+
+          <div class="scanner-viewport">
+            <video id="scannerVideo" autoplay playsinline muted class="hidden"></video>
+            <div id="scannerSimulationView" class="scanner-overlay">
+              <span id="scannerSimulationEmoji" style="font-size:42px; margin-bottom:6px;">🥛</span>
+              <p style="font-size:11px; font-weight:700;">Point Camera at Fridge Target</p>
+              <p style="font-size:9px; color:var(--text-dim); margin-top:2px;">Syncs with 3D Cryo Hologram</p>
+            </div>
+            <div class="scanner-laser"></div>
+            <div style="position:absolute; bottom:8px; left:10px; right:10px; background:rgba(9,13,26,0.85); padding:6px 12px; border-radius:10px; border:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+              <span id="scanStatusText" style="font-size:10px; font-weight:700;">Optical Engine Ready</span>
+              <span id="scanConfidenceText" class="font-mono" style="font-size:10px; font-weight:800; color:var(--emerald);">0%</span>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:8px;">
+            <button id="toggleCameraHardwareBtn" class="btn btn-secondary" style="flex:1; padding:12px;">📷 Toggle Camera</button>
+            <button id="triggerScanAnalyzeBtn" class="btn btn-primary" style="flex:1; padding:12px;">✨ Scan &amp; Verify Now</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="viewFocusTree" class="panel-card hidden" style="text-align:center; padding:24px 16px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <span class="badge" id="treeStatusLabel" style="background:rgba(16,185,129,0.15); color:var(--emerald);">🌱 Sprout Island</span>
+          <span class="badge" style="background:rgba(99,102,241,0.15);">🛡️ Deep Focus Active</span>
+        </div>
+
+        <div style="position:relative; width:150px; height:150px; margin:0 auto;">
+          <svg id="treeSvgGraphic" viewBox="0 0 200 200" style="width:100%; height:100%; transition:transform 0.4s ease;">
+            <polygon points="100,165 170,135 100,105 30,135" fill="#334155"/>
+            <polygon points="100,185 170,155 170,135 100,165" fill="#1e293b"/>
+            <polygon points="100,185 30,155 30,135 100,165" fill="#0f172a"/>
+            <path d="M96 135 C94 100 88 85 100 60 C108 80 105 105 104 135 Z" fill="#78350f"/>
+            <circle id="treeLeaf1" cx="100" cy="55" r="30" fill="#f472b6" opacity="0.95"/>
+            <circle id="treeLeaf2" cx="78" cy="65" r="24" fill="#fb7185" opacity="0.9"/>
+            <circle id="treeLeaf3" cx="122" cy="65" r="24" fill="#f43f5e" opacity="0.9"/>
+            <circle id="treeLeaf4" cx="100" cy="38" r="22" fill="#fda4af" opacity="0.95"/>
+          </svg>
+        </div>
+
+        <div id="focusTimerDisplay" class="focus-timer-dial font-mono">25:00</div>
+        <p style="font-size:11px; color:var(--text-dim); margin-bottom:12px;">Audio Lock active. Other music apps are paused to maintain focus.</p>
+
+        <div style="background:var(--card-inner); padding:14px; border-radius:18px; border:1px solid var(--border); margin-bottom:16px;">
+          <div style="display:flex; justify-content:space-between; font-size:11px; font-weight:700;">
+            <span style="color:var(--text-dim);">Session Duration</span>
+            <span id="sliderValueText" class="font-mono" style="color:var(--emerald);">25 mins</span>
+          </div>
+          <input id="focusLengthSlider" type="range" min="5" max="120" step="5" value="25" class="focus-slider" />
+        </div>
+
+        <div style="display:flex; gap:10px;">
+          <button id="toggleFocusBtn" class="btn btn-primary" style="flex:1; padding:14px; background:var(--lime-gradient); color:#090d1a;">Start Growing</button>
+          <button id="resetFocusBtn" class="btn btn-secondary" style="padding:14px 20px;">Reset</button>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav">
+      <button id="navAlarmsBtn" class="nav-item active">
+        <span style="font-size:16px;">⏰</span>
+        <span>Alarms</span>
+      </button>
+      <button id="navFridgeShortcutBtn" class="nav-item">
+        <span style="font-size:16px;">🧊</span>
+        <span>Fridge 3D</span>
+      </button>
+      <button id="navFocusBtn" class="nav-item">
+        <span style="font-size:16px;">🌸</span>
+        <span>Focus Tree</span>
+      </button>
+    </nav>
+
+    <div id="ringingOverlay" class="hidden">
+      <div style="display:flex; justify-content:space-between; align-items:center;">
+        <span class="badge ringing-pulse" style="background:var(--rose); color:#fff; border:none;">🚨 MISSION ALARM RINGING</span>
+        <span id="activeSongNameTag" class="badge" style="background:rgba(255,255,255,0.1); color:#fff;">Cyber Siren</span>
+      </div>
+
+      <div style="text-align:center; margin:16px 0;">
+        <h2 id="ringingMissionTitle" style="font-size:28px; font-weight:900;">Scan Checkpoint</h2>
+        <p id="ringingMissionSubtitle" style="font-size:12px; color:var(--text-dim); margin-top:4px;">Walk to your fridge item and tap Scan to shut off the siren.</p>
+      </div>
+
+      <div id="missionCameraBox" class="scanner-viewport" style="height:230px; border-color:var(--amber);">
+        <video id="liveCameraVideo" autoplay playsinline muted class="hidden"></video>
+        <div id="simulatedTargetCanvas" class="scanner-overlay">
+          <div id="targetEmojiDisplay" style="font-size:68px;">🥛</div>
+          <p id="targetNameDisplay" style="font-size:12px; font-weight:800; margin-top:6px; color:var(--cyan);">Cold Milk / Water Bottle</p>
+        </div>
+        <div class="scanner-laser"></div>
+        <div style="position:absolute; bottom:10px; text-align:center; width:100%;">
+          <span id="scanPercentageNum" class="font-mono" style="font-size:24px; font-weight:900; color:#fff;">0%</span>
+        </div>
+      </div>
+
+      <div id="missionMathBox" class="panel-card hidden" style="text-align:center; padding:24px; border-color:var(--emerald);">
+        <span class="badge" style="background:rgba(16,185,129,0.15); color:var(--emerald); margin-bottom:10px;">🧠 Brain Wake Challenge</span>
+        <div id="mathEquationPrompt" class="font-mono" style="font-size:36px; font-weight:900; margin:14px 0;">14 × 3 + 9 = ?</div>
+        <input id="mathAnswerField" type="number" placeholder="Enter solution" style="font-size:22px; text-align:center; padding:14px;" />
+        <button id="verifyMathAnswerBtn" class="btn btn-primary" style="width:100%; margin-top:12px; padding:14px; background:var(--lime-gradient); color:#090d1a;">Solve &amp; Disarm</button>
+      </div>
+
+      <div style="display:flex; justify-content:center; margin-top:10px;">
+        <button id="scanShutterActionBtn" class="scan-trigger-btn">SCAN</button>
+      </div>
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+        <button id="toggleRealCameraBtn" class="btn btn-secondary" style="font-size:11px;">📷 Camera</button>
+        <button id="devOverrideDismissBtn" class="btn" style="color:var(--text-dim); font-size:11px; text-decoration:underline;">Dev Silence</button>
+      </div>
+    </div>
+
+    <div id="settingsModal" class="modal-sheet hidden">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 style="font-size:15px; font-weight:800;">⚙️ App Settings &amp; Audio Lab</h3>
+          <button id="closeSettingsBtn" class="icon-btn">✕</button>
+        </div>
+
+        <div style="background:var(--card-inner); padding:12px; border-radius:14px; border:1px solid var(--border);">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+            <span style="font-size:12px; font-weight:700;">📧 Developer Contact</span>
+            <span class="badge" style="font-size:9px;">Official</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center;">
+            <a href="mailto:naimish.dev7@gmail.com" class="font-mono" style="font-size:11px; color:var(--primary); text-decoration:none;">naimish.dev7@gmail.com</a>
+            <button id="copyContactEmailBtn" class="btn btn-secondary" style="padding:4px 8px; font-size:10px;">Copy</button>
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:12px; font-weight:700;">Theme Appearance</span>
+          <button id="settingsThemeSwitchBtn" class="btn btn-secondary">Toggle Light/Dark</button>
+        </div>
+
+        <div>
+          <label style="font-size:11px; font-weight:800; color:var(--amber); text-transform:uppercase; display:block; margin-bottom:6px;">🎵 Alarm Sirens (Web Audio Synth)</label>
+          <div id="soundListContainer" style="display:flex; flex-direction:column; gap:6px;"></div>
+        </div>
+
+        <div>
+          <label style="font-size:11px; font-weight:800; color:var(--cyan); text-transform:uppercase; display:block; margin-bottom:6px;">🏷️ Custom Watermark</label>
+          <div style="display:flex; gap:8px;">
+            <input id="customWatermarkInput" type="text" value="Verified by Jarvis OS" />
+            <button id="saveWatermarkBtn" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+
+        <button id="doneSettingsBtn" class="btn btn-primary" style="width:100%; margin-top:8px;">Done</button>
+      </div>
+    </div>
+
+    <div id="newAlarmModal" class="modal-sheet hidden">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 style="font-size:15px; font-weight:800;">⏰ Create Mission Alarm</h3>
+          <button id="closeNewAlarmModalBtn" class="icon-btn">✕</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div>
+            <label style="font-size:11px; color:var(--text-dim); font-weight:700; display:block; margin-bottom:4px;">Alarm Time</label>
+            <input id="newAlarmTime" type="time" value="06:45" class="font-mono" style="font-size:18px; font-weight:800;" />
+          </div>
+          <div>
+            <label style="font-size:11px; color:var(--text-dim); font-weight:700; display:block; margin-bottom:4px;">Mission Label</label>
+            <input id="newAlarmTitle" type="text" value="Morning Focus &amp; Coding" />
+          </div>
+          <div>
+            <label style="font-size:11px; color:var(--text-dim); font-weight:700; display:block; margin-bottom:4px;">Disarm Checkpoint Task</label>
+            <select id="newAlarmTargetSelect">
+              <option value="fridge">📷 Scan: Fridge Inside (Milk / Snack)</option>
+              <option value="sink">🪥 Scan: Bathroom Sink / Toothbrush</option>
+              <option value="desk">💻 Scan: Study Desk / Laptop</option>
+              <option value="math">🧠 Mental Math Brain Puzzle</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:11px; color:var(--text-dim); font-weight:700; display:block; margin-bottom:4px;">Ringtone</label>
+            <select id="newAlarmSongSelect">
+              <option value="cyber_siren">🚨 Cyber Siren</option>
+              <option value="chiptune_sunrise">👾 Chiptune Sunrise</option>
+              <option value="marimba_breeze">🎋 Marimba Breeze</option>
+              <option value="arcade_rush">🕹️ Arcade Rush</option>
+              <option value="zen_bells">🔔 Zen Temple Bells</option>
+              <option value="radar_pulse">📡 Radar Pulse</option>
+            </select>
+          </div>
+        </div>
+        <div style="display:flex; gap:8px; margin-top:8px;">
+          <button id="cancelNewAlarmBtn" class="btn btn-secondary" style="flex:1;">Cancel</button>
+          <button id="saveNewAlarmBtn" class="btn btn-primary" style="flex:1;">Save Alarm</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="replaceItemModal" class="modal-sheet hidden">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 style="font-size:15px; font-weight:800;">🔄 Swap Fridge Target Item</h3>
+          <button id="closeReplaceModalBtn" class="icon-btn">✕</button>
+        </div>
+        <p style="font-size:11px; color:var(--text-dim);">Pick an item from your fridge required to stop your wake alarm:</p>
+        <div id="fridgePresetList" style="display:flex; flex-direction:column; gap:8px; max-height:220px; overflow-y:auto;"></div>
+        <div>
+          <label style="font-size:11px; font-weight:700; color:var(--text-dim); display:block; margin-bottom:4px;">Custom Fridge Item</label>
+          <div style="display:flex; gap:8px;">
+            <input id="customItemInput" type="text" placeholder="e.g. Orange Juice" />
+            <button id="applyCustomItemBtn" class="btn btn-primary">Set</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="overviewModal" class="modal-sheet hidden">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 style="font-size:15px; font-weight:800;">✨ Jarvis OS Overview</h3>
+          <button id="closeOverviewModalBtn" class="icon-btn">✕</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:10px; font-size:12px;">
+          <div style="background:var(--card-inner); padding:10px; border-radius:14px; border:1px solid var(--border);">
+            <strong style="color:var(--cyan);">1. Alarmy-Style Physical Scan</strong>
+            <p style="font-size:11px; color:var(--text-dim); margin-top:2px;">Alarms will ring continuously until you get up and align your camera with your fridge item.</p>
+          </div>
+          <div style="background:var(--card-inner); padding:10px; border-radius:14px; border:1px solid var(--border);">
+            <strong style="color:var(--emerald);">2. Focus Tree Cherry Island</strong>
+            <p style="font-size:11px; color:var(--text-dim); margin-top:2px;">Configurable focus timer that grows a 3D isometric Bonsai and holds audio lock to prevent distractions.</p>
+          </div>
+          <div style="background:var(--card-inner); padding:10px; border-radius:14px; border:1px solid var(--border);">
+            <strong style="color:var(--primary);">3. 100% Self-Contained PWA</strong>
+            <p style="font-size:11px; color:var(--text-dim); margin-top:2px;">Custom WebGL renderer with pure CSS styling so it never breaks offline in Acode.</p>
+          </div>
+        </div>
+        <button id="dismissOverviewBtn" class="btn btn-primary" style="width:100%;">Got It</button>
+      </div>
+    </div>
+
+    <div id="toastNotification" class="hidden">Saved!</div>
+  </div>
+
+  <script>
+    // PWA Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        const swBlob = new Blob([
+          `self.addEventListener('install', e => self.skipWaiting());
+           self.addEventListener('activate', e => self.clients.claim());
+           self.addEventListener('fetch', e => e.respondWith(fetch(e.request).catch(() => caches.match(e.request))));`
+        ], { type: 'application/javascript' });
+        navigator.serviceWorker.register(URL.createObjectURL(swBlob)).catch(() => {});
+      });
+    }
+
+    const STATE_KEY = 'jarvis_3d_unified_alarmy_v6';
+
+    const PRESET_FRIDGE_ITEMS = [
+      { id:'milk', name:'Cold Milk / Water Bottle', emoji:'🥛', location:'Top Door Shelf', color:0x38bdf8, hex:'#38bdf8' },
+      { id:'apples', name:'Fresh Apples / Fruit Bin', emoji:'🍎', location:'Bottom Fruit Bin', color:0xf43f5e, hex:'#f43f5e' },
+      { id:'eggs', name:'Egg Carton / Protein Shelf', emoji:'🥚', location:'Middle Shelf', color:0xfbbf24, hex:'#fbbf24' },
+      { id:'cheese', name:'Cheddar Cheese Block', emoji:'🧀', location:'Deli Drawer', color:0xf59e0b, hex:'#f59e0b' },
+      { id:'juice', name:'Orange Juice Jug', emoji:'🧃', location:'Side Door Caddy', color:0xfb923c, hex:'#fb923c' }
+    ];
+
+    const SCAN_TARGETS = {
+      fridge: { title:'Inside of Fridge', emoji:'🥛', desc:'Walk to kitchen and scan fridge target' },
+      sink: { title:'Bathroom Sink', emoji:'🪥', desc:'Head to bathroom and scan sink' },
+      desk: { title:'Study Desk', emoji:'💻', desc:'Scan your workstation' },
+      math: { title:'Mental Math', emoji:'🧠', desc:'Solve arithmetic challenge' }
+    };
+
+    let appData = {
+      theme: 'dark',
+      soundEnabled: true,
+      watermark: 'Jarvis OS • Alarmy 3D',
+      targetFridgeItem: PRESET_FRIDGE_ITEMS[0],
+      activeAlarmSong: 'cyber_siren',
+      alarms: [
+        { id: 'alm-1', time: '06:42', label: 'Morning Sprints & Hydration', target: 'fridge', song: 'cyber_siren', enabled: true },
+        { id: 'alm-2', time: '07:30', label: 'Study & Focus Sesh', target: 'desk', song: 'chiptune_sunrise', enabled: true },
+        { id: 'alm-3', time: '08:15', label: 'Brain Arithmetic Warm-Up', target: 'math', song: 'marimba_breeze', enabled: false }
+      ]
+    };
+
+    try {
+      const saved = localStorage.getItem(STATE_KEY);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed && Array.isArray(parsed.alarms)) appData = { ...appData, ...parsed };
+      }
+    } catch(e){}
+
+    function persistState() {
+      try { localStorage.setItem(STATE_KEY, JSON.stringify(appData)); } catch(e){}
+      renderUI();
+    }
+
+    let toastTimer = null;
+    function notifyToast(text) {
+      const el = document.getElementById('toastNotification');
+      el.textContent = text;
+      el.classList.remove('hidden');
+      if (toastTimer) clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.add('hidden'), 2200);
+    }
+
+    let audioCtx = null, alarmPlayingInterval = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const A = window.AudioContext || window.webkitAudioContext;
+        if (A) audioCtx = new A();
+      }
+      return audioCtx;
+    }
+
+    function initAudioOnFirstTouch() {
+      const ctx = getAudioContext();
+      if (ctx && ctx.state === 'suspended') {
+        ctx.resume();
+      }
+      window.removeEventListener('pointerdown', initAudioOnFirstTouch);
+      window.removeEventListener('keydown', initAudioOnFirstTouch);
+    }
+    window.addEventListener('pointerdown', initAudioOnFirstTouch);
+    window.addEventListener('keydown', initAudioOnFirstTouch);
+
+    function playSynthTone(freq, type='sine', dur=0.2, gainVal=0.2) {
+      if (!appData.soundEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        if (ctx.state === 'suspended') ctx.resume();
+        const now = ctx.currentTime, osc = ctx.createOscillator(), g = ctx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(freq, now);
+        g.gain.setValueAtTime(0.001, now);
+        g.gain.linearRampToValueAtTime(gainVal, now + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, now + dur);
+        osc.connect(g);
+        g.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + dur);
+      } catch(e){}
+    }
+
+    function playSfx(type) {
+      if (!appData.soundEnabled) return;
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      if (ctx.state === 'suspended') ctx.resume();
+      const now = ctx.currentTime;
+      if (type === 'click') {
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'sine';
+        o.frequency.setValueAtTime(640, now);
+        o.frequency.exponentialRampToValueAtTime(260, now + 0.04);
+        g.gain.setValueAtTime(0.09, now);
+        g.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(now); o.stop(now + 0.05);
+      } else if (type === 'success') {
+        [523.25, 659.25, 783.99, 1046.5].forEach((f, i) => {
+          setTimeout(() => playSynthTone(f, 'triangle', 0.16 + i*0.04, 0.16), i * 75);
+        });
+      }
+    }
+
+    const SONGS = {
+      cyber_siren: {
+        id:'cyber_siren', name:'Cyber Siren', icon:'🚨', desc:'High priority dual sweep', interval: 260,
+        step: (c, s) => playSynthTone(s % 2 === 0 ? 880 : 1318.5, 'sawtooth', 0.22, 0.25)
+      },
+      chiptune_sunrise: {
+        id:'chiptune_sunrise', name:'Chiptune Sunrise', icon:'👾', desc:'8-bit arpeggio', interval: 180,
+        step: (c, s) => {
+          const notes = [523.25, 659.25, 783.99, 1046.5, 783.99, 659.25];
+          playSynthTone(notes[s % notes.length], 'square', 0.15, 0.16);
+        }
+      },
+      marimba_breeze: {
+        id:'marimba_breeze', name:'Marimba Breeze', icon:'🎋', desc:'Warm harmonic chords', interval: 380,
+        step: (c, s) => {
+          const chords = [[440, 554.37, 659.25], [493.88, 587.33, 739.99], [554.37, 659.25, 830.61]];
+          chords[s % chords.length].forEach((f, i) => setTimeout(() => playSynthTone(f, 'sine', 0.26, 0.14), i*30));
+        }
+      },
+      arcade_rush: {
+        id:'arcade_rush', name:'Arcade Rush', icon:'🕹️', desc:'Speedy rhythm pulse', interval: 160,
+        step: (c, s) => {
+          const notes = [440, 440, 880, 440, 659.25, 783.99, 1174.66];
+          playSynthTone(notes[s % notes.length], 'triangle', 0.14, 0.18);
+        }
+      },
+      zen_bells: {
+        id:'zen_bells', name:'Zen Temple Bells', icon:'🔔', desc:'Meditation bell resonance', interval: 650,
+        step: (c, s) => {
+          const f = s % 2 === 0 ? 523.25 : 659.25;
+          playSynthTone(f, 'sine', 0.7, 0.2); playSynthTone(f*2.76, 'sine', 0.5, 0.08);
+        }
+      },
+      radar_pulse: {
+        id:'radar_pulse', name:'Radar Pulse', icon:'📡', desc:'High frequency sonar', interval: 240,
+        step: (c, s) => playSynthTone(s % 2 === 0 ? 987.77 : 1318.5, 'sawtooth', 0.18, 0.22)
+      }
+    };
+
+    let previewSongId = null, previewTimer = null;
+    function togglePreviewSong(id) {
+      if (previewSongId === id) {
+        clearInterval(previewTimer);
+        previewSongId = null;
+        renderSettingsSoundTester();
+        return;
+      }
+      clearInterval(previewTimer);
+      previewSongId = id;
+      let step = 0;
+      const song = SONGS[id];
+      song.step(getAudioContext(), step++);
+      previewTimer = setInterval(() => {
+        song.step(getAudioContext(), step++);
+        if (step > 12) { clearInterval(previewTimer); previewSongId = null; renderSettingsSoundTester(); }
+      }, song.interval);
+      renderSettingsSoundTester();
+    }
+
+    let alarmStepCounter = 0;
+    function startAlarmAudio(songKey) {
+      stopAlarmAudio();
+      const song = SONGS[songKey] || SONGS.cyber_siren;
+      alarmStepCounter = 0;
+      song.step(getAudioContext(), alarmStepCounter++);
+      alarmPlayingInterval = setInterval(() => song.step(getAudioContext(), alarmStepCounter++), song.interval);
+    }
+    function stopAlarmAudio() {
+      if (alarmPlayingInterval) { clearInterval(alarmPlayingInterval); alarmPlayingInterval = null; }
+    }
+
+    let bgScene, bgCamera, bgRenderer, bgParticles;
+    let stageScene, stageCamera, stageRenderer;
+    let chronoGroup, fridgeGroup, bonsaiGroup, fridgeTargetMesh;
+    let current3DMode = 'chrono';
+    let isDragging3D = false, prevPointerX = 0, prevPointerY = 0;
+    let targetRotationY = 0.4, targetRotationX = 0.15;
+
+    function initUnified3D() {
+      try {
+        const bgCanvas = document.getElementById('threeBgCanvas');
+        bgScene = new THREE.Scene();
+        bgCamera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+        bgCamera.position.z = 10;
+        bgRenderer = new THREE.WebGLRenderer({ canvas: bgCanvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
+        bgRenderer.setSize(window.innerWidth, window.innerHeight);
+        bgRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+
+        const pCount = 180, pGeom = new THREE.BufferGeometry(), pos = new Float32Array(pCount * 3);
+        for (let i = 0; i < pCount * 3; i++) pos[i] = (Math.random() - 0.5) * 28;
+        pGeom.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+        bgParticles = new THREE.Points(pGeom, new THREE.PointsMaterial({ color: 0x6366f1, size: 0.14, transparent: true, opacity: 0.55 }));
+        bgScene.add(bgParticles);
+
+        const stageCanvas = document.getElementById('threeStageCanvas');
+        const parent = stageCanvas.parentElement;
+        const rect = parent.getBoundingClientRect();
+        stageScene = new THREE.Scene();
+        stageCamera = new THREE.PerspectiveCamera(40, (rect.width || 360) / (rect.height || 195), 0.1, 100);
+        stageCamera.position.set(0, 0.8, 6.2);
+
+        stageRenderer = new THREE.WebGLRenderer({ canvas: stageCanvas, alpha: true, antialias: true, powerPreference: 'high-performance' });
+        stageRenderer.setSize(rect.width || 360, rect.height || 195);
+        stageRenderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+
+        stageScene.add(new THREE.AmbientLight(0xffffff, 1.3));
+        const dl = new THREE.DirectionalLight(0x818cf8, 1.8);
+        dl.position.set(5, 8, 6);
+        stageScene.add(dl);
+
+        chronoGroup = new THREE.Group();
+        const coreGeo = new THREE.IcosahedronGeometry(0.8, 1);
+        const coreMat = new THREE.MeshPhongMaterial({ color: 0x6366f1, emissive: 0x2e1065, shininess: 80 });
+        chronoGroup.add(new THREE.Mesh(coreGeo, coreMat));
+        const wireMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.5 });
+        chronoGroup.add(new THREE.Mesh(new THREE.IcosahedronGeometry(0.86, 1), wireMat));
+
+        const r1 = new THREE.Mesh(new THREE.TorusGeometry(1.35, 0.03, 16, 64), new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
+        r1.rotation.x = Math.PI / 3; r1.name = 'r1'; chronoGroup.add(r1);
+        const r2 = new THREE.Mesh(new THREE.TorusGeometry(1.68, 0.025, 16, 64), new THREE.MeshBasicMaterial({ color: 0xa855f7 }));
+        r2.rotation.y = Math.PI / 4; r2.name = 'r2'; chronoGroup.add(r2);
+        stageScene.add(chronoGroup);
+
+        fridgeGroup = new THREE.Group();
+        fridgeGroup.visible = false;
+        const boxMat = new THREE.MeshBasicMaterial({ color: 0x0ea5e9, wireframe: true });
+        fridgeGroup.add(new THREE.Mesh(new THREE.BoxGeometry(1.8, 2.4, 1.2), boxMat));
+        const shelf = new THREE.Mesh(new THREE.BoxGeometry(1.6, 0.04, 1.0), new THREE.MeshBasicMaterial({ color: 0x7dd3fc, transparent: true, opacity: 0.4 }));
+        shelf.position.y = -0.3;
+        fridgeGroup.add(shelf);
+
+        fridgeTargetMesh = new THREE.Mesh(new THREE.OctahedronGeometry(0.45, 0), new THREE.MeshPhongMaterial({ color: appData.targetFridgeItem.color, shininess: 90 }));
+        fridgeTargetMesh.position.y = 0.25;
+        fridgeGroup.add(fridgeTargetMesh);
+        stageScene.add(fridgeGroup);
+
+        bonsaiGroup = new THREE.Group();
+        bonsaiGroup.visible = false;
+        
+        const islandTop = new THREE.Mesh(new THREE.CylinderGeometry(1.2, 0.9, 0.35, 6), new THREE.MeshPhongMaterial({ color: 0x65a30d }));
+        islandTop.position.y = -0.85;
+        bonsaiGroup.add(islandTop);
+        const islandBottom = new THREE.Mesh(new THREE.ConeGeometry(0.9, 0.7, 6), new THREE.MeshPhongMaterial({ color: 0x451a03 }));
+        islandBottom.position.y = -1.35;
+        islandBottom.rotation.x = Math.PI;
+        bonsaiGroup.add(islandBottom);
+
+        const trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.24, 1.4, 8), new THREE.MeshPhongMaterial({ color: 0x78350f }));
+        trunk.position.y = -0.15;
+        trunk.rotation.z = 0.08;
+        bonsaiGroup.add(trunk);
+
+        const foliageCoords = [
+          { p: [0, 0.65, 0], r: 0.65, c: 0xf472b6 },
+          { p: [-0.48, 0.42, 0.2], r: 0.48, c: 0xfb7185 },
+          { p: [0.5, 0.48, -0.15], r: 0.5, c: 0xf43f5e },
+          { p: [0, 0.98, 0.1], r: 0.42, c: 0xfda4af }
+        ];
+        foliageCoords.forEach(item => {
+          const m = new THREE.Mesh(new THREE.DodecahedronGeometry(item.r, 1), new THREE.MeshPhongMaterial({ color: item.c, shininess: 30 }));
+          m.position.set(item.p[0], item.p[1], item.p[2]);
+          bonsaiGroup.add(m);
+        });
+        stageScene.add(bonsaiGroup);
+
+        window.addEventListener('resize', () => {
+          bgCamera.aspect = window.innerWidth / window.innerHeight;
+          bgCamera.updateProjectionMatrix();
+          bgRenderer.setSize(window.innerWidth, window.innerHeight);
+
+          const r = stageCanvas.parentElement.getBoundingClientRect();
+          stageCamera.aspect = r.width / r.height;
+          stageCamera.updateProjectionMatrix();
+          stageRenderer.setSize(r.width, r.height);
+        });
+
+        setup3DInteractions();
+        animate3D();
+      } catch(e) {
+        console.error('3D init fallback', e);
+      }
+    }
+
+    function setup3DInteractions() {
+      const stageCanvas = document.getElementById('threeStageCanvas');
+      const start = (x, y) => { isDragging3D = true; prevPointerX = x; prevPointerY = y; };
+      const move = (x, y) => {
+        if (!isDragging3D) return;
+        targetRotationY += (x - prevPointerX) * 0.012;
+        targetRotationX = Math.max(-0.6, Math.min(0.6, targetRotationX + (y - prevPointerY) * 0.008));
+        prevPointerX = x; prevPointerY = y;
+      };
+      const end = () => { isDragging3D = false; };
+
+      stageCanvas.addEventListener('pointerdown', e => start(e.clientX, e.clientY));
+      window.addEventListener('pointermove', e => move(e.clientX, e.clientY));
+      window.addEventListener('pointerup', end);
+      stageCanvas.addEventListener('touchstart', e => { if (e.touches[0]) start(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+      window.addEventListener('touchmove', e => { if (e.touches[0]) move(e.touches[0].clientX, e.touches[0].clientY); }, { passive: true });
+      window.addEventListener('touchend', end);
+    }
+
+    function setSceneMode(mode) {
+      current3DMode = mode;
+      chronoGroup.visible = mode === 'chrono';
+      fridgeGroup.visible = mode === 'fridge';
+      bonsaiGroup.visible = mode === 'bonsai';
+      document.querySelectorAll('.scene-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-scene-mode') === mode);
+      });
+      playSfx('click');
+    }
+
+    document.querySelectorAll('.scene-btn').forEach(b => {
+      b.addEventListener('click', () => setSceneMode(b.getAttribute('data-scene-mode')));
+    });
+
+    function animate3D() {
+      requestAnimationFrame(animate3D);
+      const t = performance.now() * 0.001;
+
+      if (!isDragging3D) targetRotationY += 0.006;
+      if (bgParticles) bgParticles.rotation.y = t * 0.03;
+      if (bgRenderer && bgScene && bgCamera) bgRenderer.render(bgScene, bgCamera);
+
+      if (stageRenderer && stageScene && stageCamera) {
+        const active = current3DMode === 'fridge' ? fridgeGroup : (current3DMode === 'bonsai' ? bonsaiGroup : chronoGroup);
+        if (active) {
+          active.rotation.y += (targetRotationY - active.rotation.y) * 0.1;
+          active.rotation.x += (targetRotationX - active.rotation.x) * 0.1;
+        }
+
+        if (chronoGroup && chronoGroup.visible) {
+          const r1 = chronoGroup.getObjectByName('r1'), r2 = chronoGroup.getObjectByName('r2');
+          if (r1) r1.rotation.z = t * 0.8;
+          if (r2) r2.rotation.x = t * 0.6;
+        }
+        if (fridgeGroup && fridgeGroup.visible && fridgeTargetMesh) {
+          fridgeTargetMesh.rotation.y = t * 1.6;
+          fridgeTargetMesh.position.y = 0.25 + Math.sin(t * 2.5) * 0.1;
+        }
+        if (bonsaiGroup && bonsaiGroup.visible) {
+          bonsaiGroup.position.y = Math.sin(t * 1.5) * 0.06;
+        }
+        stageRenderer.render(stageScene, stageCamera);
+      }
+    }
+
+    let cameraStream = null, isScanning = false;
+
+    async function toggleCamera(videoElemId, isLiveAlarm = false) {
+      playSfx('click');
+      const v = document.getElementById(videoElemId);
+      const sim = document.getElementById(isLiveAlarm ? 'simulatedTargetCanvas' : 'scannerSimulationView');
+
+      if (!cameraStream) {
+        try {
+          if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            notifyToast('Camera API not accessible — using Optical Simulation');
+            return;
+          }
+          cameraStream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: 'environment', width: { ideal: 640 } },
+            audio: false
+          });
+          v.srcObject = cameraStream;
+          v.classList.remove('hidden');
+          sim.classList.add('hidden');
+          notifyToast('📷 Camera Active');
+        } catch(e) {
+          notifyToast('Camera access denied — using 3D Simulation');
+        }
+      } else {
+        cameraStream.getTracks().forEach(track => track.stop());
+        cameraStream = null;
+        v.classList.add('hidden');
+        sim.classList.remove('hidden');
+      }
+    }
+
+    document.getElementById('toggleCameraHardwareBtn').addEventListener('click', () => toggleCamera('scannerVideo'));
+    document.getElementById('toggleRealCameraBtn').addEventListener('click', () => toggleCamera('liveCameraVideo', true));
+
+    function runScanVerification(onComplete) {
+      if (isScanning) return;
+      isScanning = true;
+      playSfx('click');
+      const st = document.getElementById('scanStatusText');
+      const cf = document.getElementById('scanConfidenceText');
+      const pctNum = document.getElementById('scanPercentageNum');
+      st.textContent = `Analyzing ${appData.targetFridgeItem.name}...`;
+
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 16;
+        cf.textContent = `${Math.min(100, progress)}%`;
+        if (pctNum) pctNum.textContent = `${Math.min(100, progress)}%`;
+        playSynthTone(800 + progress * 6, 'sine', 0.05, 0.08);
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          isScanning = false;
+          st.textContent = `Verified: ${appData.targetFridgeItem.name}!`;
+          playSfx('success');
+          if (onComplete) onComplete();
+        }
+      }, 140);
+    }
+
+    document.getElementById('triggerScanAnalyzeBtn').addEventListener('click', () => {
+      setSceneMode('fridge');
+      runScanVerification(() => notifyToast(`✅ Verified: ${appData.targetFridgeItem.name}`));
+    });
+
+    document.getElementById('scanShutterActionBtn').addEventListener('click', () => {
+      runScanVerification(() => dismissAlarmSuccess());
+    });
+
+    function formatTime12(t24) {
+      const [h, m] = t24.split(':').map(v => parseInt(v, 10));
+      return {
+        time: `${String(h % 12 || 12).padStart(2, '0')}:${String(m).padStart(2, '0')}`,
+        ampm: h >= 12 ? 'PM' : 'AM'
+      };
+    }
+
+    function renderAlarms() {
+      const container = document.getElementById('alarmCardsContainer');
+      container.innerHTML = '';
+
+      if (appData.alarms.length === 0) {
+        container.innerHTML = `<div class="panel-card" style="text-align:center; font-size:12px; color:var(--text-dim);">No wake missions set. Tap <strong>+ New Alarm</strong>!</div>`;
+        return;
+      }
+
+      appData.alarms.forEach(alm => {
+        const { time, ampm } = formatTime12(alm.time);
+        const card = document.createElement('div');
+        card.className = `alarm-card ${alm.enabled ? '' : 'disabled'}`;
+        const targetMeta = SCAN_TARGETS[alm.target] || SCAN_TARGETS.fridge;
+
+        card.innerHTML = `
+          <div class="alarm-time-row">
+            <div>
+              <div style="display:flex; align-items:baseline; gap:4px;">
+                <span class="alarm-digits font-mono">${time}</span>
+                <span style="font-size:11px; font-weight:800; color:var(--primary);">${ampm}</span>
+              </div>
+              <p style="font-size:12px; font-weight:700; color:var(--text-dim); margin-top:2px;">${alm.label}</p>
+            </div>
+            <div class="toggle-switch ${alm.enabled ? 'active' : ''}" data-action="toggle" data-id="${alm.id}">
+              <div class="toggle-thumb"></div>
+            </div>
+          </div>
+          <div class="alarm-meta-row">
+            <span style="display:flex; align-items:center; gap:4px;">
+              <span>${alm.target === 'fridge' ? appData.targetFridgeItem.emoji : targetMeta.emoji}</span>
+              <span style="color:var(--text-dim);">${alm.target === 'fridge' ? appData.targetFridgeItem.name.split(' /')[0] : targetMeta.title}</span>
+            </span>
+            <div style="display:flex; gap:6px;">
+              <button class="btn btn-secondary" data-action="test" data-id="${alm.id}" style="padding:4px 8px; font-size:10px;">Test</button>
+              <button class="btn btn-danger" data-action="delete" data-id="${alm.id}" style="padding:4px 8px; font-size:10px;">🗑</button>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    document.getElementById('alarmCardsContainer').addEventListener('click', e => {
+      const toggle = e.target.closest('[data-action="toggle"]');
+      const test = e.target.closest('[data-action="test"]');
+      const del = e.target.closest('[data-action="delete"]');
+
+      if (toggle) {
+        const id = toggle.getAttribute('data-id');
+        const alm = appData.alarms.find(a => a.id === id);
+        if (alm) { alm.enabled = !alm.enabled; persistState(); playSfx('click'); }
+      } else if (test) {
+        const id = test.getAttribute('data-id');
+        const alm = appData.alarms.find(a => a.id === id);
+        if (alm) triggerAlarmRinging(alm);
+      } else if (del) {
+        const id = del.getAttribute('data-id');
+        appData.alarms = appData.alarms.filter(a => a.id !== id);
+        persistState();
+        playSfx('click');
+        notifyToast('Alarm deleted');
+      }
+    });
+
+    let currentRingingAlarm = null;
+    function triggerAlarmRinging(alm) {
+      currentRingingAlarm = alm;
+      playSfx('click');
+      document.getElementById('ringingOverlay').classList.remove('hidden');
+      const songMeta = SONGS[alm.song] || SONGS.cyber_siren;
+      document.getElementById('activeSongNameTag').textContent = `${songMeta.icon} ${songMeta.name}`;
+
+      const cb = document.getElementById('missionCameraBox'), mb = document.getElementById('missionMathBox');
+      const scanNum = document.getElementById('scanPercentageNum');
+      if (scanNum) scanNum.textContent = '0%';
+
+      if (alm.target === 'math') {
+        cb.classList.add('hidden'); mb.classList.remove('hidden');
+        document.getElementById('scanShutterActionBtn').classList.add('hidden');
+        const n1 = Math.floor(Math.random() * 12) + 6, n2 = Math.floor(Math.random() * 8) + 4, n3 = Math.floor(Math.random() * 20) + 5;
+        window.activeMathResult = n1 * n2 + n3;
+        document.getElementById('mathEquationPrompt').textContent = `${n1} × ${n2} + ${n3} = ?`;
+        document.getElementById('mathAnswerField').value = '';
+      } else {
+        cb.classList.remove('hidden'); mb.classList.add('hidden');
+        document.getElementById('scanShutterActionBtn').classList.remove('hidden');
+        const isF = alm.target === 'fridge';
+        document.getElementById('targetEmojiDisplay').textContent = isF ? appData.targetFridgeItem.emoji : (SCAN_TARGETS[alm.target]?.emoji || '🥛');
+        document.getElementById('targetNameDisplay').textContent = isF ? appData.targetFridgeItem.name : (SCAN_TARGETS[alm.target]?.title || 'Target');
+      }
+      startAlarmAudio(alm.song || appData.activeAlarmSong);
+    }
+
+    function dismissAlarmSuccess() {
+      stopAlarmAudio();
+      if (cameraStream) { cameraStream.getTracks().forEach(t => t.stop()); cameraStream = null; }
+      document.getElementById('liveCameraVideo').classList.add('hidden');
+      document.getElementById('simulatedTargetCanvas').classList.remove('hidden');
+      document.getElementById('ringingOverlay').classList.add('hidden');
+      playSfx('success');
+      notifyToast('✅ Mission Accomplished — Alarm Disarmed!');
+    }
+
+    document.getElementById('verifyMathAnswerBtn').addEventListener('click', () => {
+      const val = parseInt(document.getElementById('mathAnswerField').value, 10);
+      if (val === window.activeMathResult) dismissAlarmSuccess();
+      else { playSfx('click'); notifyToast('❌ Incorrect answer!'); }
+    });
+
+    document.getElementById('devOverrideDismissBtn').addEventListener('click', dismissAlarmSuccess);
+
+    document.getElementById('saveNewAlarmBtn').addEventListener('click', () => {
+      const t = document.getElementById('newAlarmTime').value;
+      const l = document.getElementById('newAlarmTitle').value.trim() || 'Wake Mission';
+      const tg = document.getElementById('newAlarmTargetSelect').value;
+      const s = document.getElementById('newAlarmSongSelect').value;
+
+      if (!t) { notifyToast('Select a valid time'); return; }
+      appData.alarms.push({ id: 'alm-' + Date.now(), time: t, label: l, target: tg, song: s, enabled: true });
+      appData.alarms.sort((a, b) => a.time.localeCompare(b.time));
+      persistState();
+      playSfx('success');
+      document.getElementById('newAlarmModal').classList.add('hidden');
+      notifyToast('✅ New Alarm Active');
+    });
+
+    let lastCheckedMinute = '';
+    setInterval(() => {
+      const now = new Date();
+      const h24 = now.getHours(), m = now.getMinutes(), s = now.getSeconds();
+      document.getElementById('heroClockText').textContent = `${String(h24 % 12 || 12).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+      document.getElementById('heroAmPmText').textContent = h24 >= 12 ? 'PM' : 'AM';
+
+      const cur = `${String(h24).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+      if (s === 0 && lastCheckedMinute !== `${now.toDateString()}_${cur}`) {
+        lastCheckedMinute = `${now.toDateString()}_${cur}`;
+        const match = appData.alarms.find(a => a.enabled && a.time === cur);
+        if (match) triggerAlarmRinging(match);
+      }
+    }, 1000);
+
+    let focusMinutes = 25, focusSecondsLeft = 25 * 60, focusTimer = null, isFocusActive = false;
+    const focusSliderEl = document.getElementById('focusLengthSlider');
+    const sliderValEl = document.getElementById('sliderValueText');
+    const timerDisplayEl = document.getElementById('focusTimerDisplay');
+    const toggleFocusBtnEl = document.getElementById('toggleFocusBtn');
+    const treeSvgGraphic = document.getElementById('treeSvgGraphic');
+
+    function updateTreeGraphic(pct) {
+      const l1 = document.getElementById('treeLeaf1'), l2 = document.getElementById('treeLeaf2');
+      const l3 = document.getElementById('treeLeaf3'), l4 = document.getElementById('treeLeaf4');
+      const label = document.getElementById('treeStatusLabel');
+      const overviewPhase = document.getElementById('overviewTreePhase');
+
+      if (pct < 30) {
+        label.textContent = '🌱 Sprout Island';
+        overviewPhase.textContent = '🌱 Sprout';
+        l1.setAttribute('r', '16'); l2.setAttribute('r', '0'); l3.setAttribute('r', '0'); l4.setAttribute('r', '0');
+        treeSvgGraphic.style.transform = 'scale(0.85)';
+      } else if (pct < 70) {
+        label.textContent = '🌿 Blooming Island';
+        overviewPhase.textContent = '🌿 Blooming';
+        l1.setAttribute('r', '24'); l2.setAttribute('r', '18'); l3.setAttribute('r', '18'); l4.setAttribute('r', '14');
+        treeSvgGraphic.style.transform = 'scale(1.0)';
+      } else {
+        label.textContent = '🌸 Full Sakura Bloom';
+        overviewPhase.textContent = '🌸 Full Bloom';
+        l1.setAttribute('r', '30'); l2.setAttribute('r', '24'); l3.setAttribute('r', '24'); l4.setAttribute('r', '22');
+        treeSvgGraphic.style.transform = 'scale(1.15)';
+      }
+    }
+
+    focusSliderEl.addEventListener('input', e => {
+      if (isFocusActive) return;
+      focusMinutes = parseInt(e.target.value, 10);
+      sliderValEl.textContent = `${focusMinutes} mins`;
+      focusSecondsLeft = focusMinutes * 60;
+      const m = Math.floor(focusSecondsLeft / 60), s = focusSecondsLeft % 60;
+      timerDisplayEl.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+    });
+
+    toggleFocusBtnEl.addEventListener('click', () => {
+      playSfx('click');
+      if (!isFocusActive) {
+        isFocusActive = true;
+        toggleFocusBtnEl.textContent = 'Pause Session';
+        toggleFocusBtnEl.style.background = 'var(--rose-gradient)';
+        focusTimer = setInterval(() => {
+          focusSecondsLeft--;
+          const m = Math.floor(focusSecondsLeft / 60), s = focusSecondsLeft % 60;
+          timerDisplayEl.textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+          const pct = ((focusMinutes * 60 - focusSecondsLeft) / (focusMinutes * 60)) * 100;
+          updateTreeGraphic(pct);
+
+          if (focusSecondsLeft <= 0) {
+            clearInterval(focusTimer);
+            isFocusActive = false;
+            toggleFocusBtnEl.textContent = 'Start Growing';
+            toggleFocusBtnEl.style.background = 'var(--lime-gradient)';
+            playSfx('success');
+            notifyToast('🌸 Deep Focus Session Complete!');
+          }
+        }, 1000);
+      } else {
+        clearInterval(focusTimer);
+        isFocusActive = false;
+        toggleFocusBtnEl.textContent = 'Resume Growing';
+        toggleFocusBtnEl.style.background = 'var(--lime-gradient)';
+      }
+    });
+
+    document.getElementById('resetFocusBtn').addEventListener('click', () => {
+      playSfx('click');
+      clearInterval(focusTimer);
+      isFocusActive = false;
+      toggleFocusBtnEl.textContent = 'Start Growing';
+      toggleFocusBtnEl.style.background = 'var(--lime-gradient)';
+      focusSecondsLeft = focusMinutes * 60;
+      timerDisplayEl.textContent = `${String(focusMinutes).padStart(2,'0')}:00`;
+      updateTreeGraphic(0);
+    });
+
+    function renderFridgeItemState() {
+      const itm = appData.targetFridgeItem || PRESET_FRIDGE_ITEMS[0];
+      document.getElementById('targetItemEmoji').textContent = itm.emoji;
+      document.getElementById('targetItemName').textContent = itm.name;
+      document.getElementById('targetItemLocation').textContent = itm.location;
+      document.getElementById('scannerSimulationEmoji').textContent = itm.emoji;
+      document.getElementById('overviewTargetItem').textContent = `${itm.emoji} ${itm.name.split(' /')[0]}`;
+      if (fridgeTargetMesh) fridgeTargetMesh.material.color.setHex(itm.color);
+    }
+
+    function renderFridgePresets() {
+      const list = document.getElementById('fridgePresetList');
+      list.innerHTML = '';
+      PRESET_FRIDGE_ITEMS.forEach(item => {
+        const isCur = item.id === appData.targetFridgeItem.id;
+        const b = document.createElement('button');
+        b.className = `btn btn-secondary ${isCur ? 'active' : ''}`;
+        b.style.display = 'flex';
+        b.style.justifyContent = 'space-between';
+        b.style.width = '100%';
+        b.style.padding = '10px 14px';
+        b.style.borderColor = isCur ? 'var(--primary)' : 'var(--border)';
+        b.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:20px;">${item.emoji}</span>
+            <div style="text-align:left;">
+              <p style="font-size:12px; font-weight:800;">${item.name}</p>
+              <p style="font-size:10px; color:var(--text-dim);">${item.location}</p>
+            </div>
+          </div>
+          ${isCur ? '<span style="color:var(--primary); font-size:11px;">✓</span>' : ''}
+        `;
+        b.addEventListener('click', () => {
+          appData.targetFridgeItem = item;
+          persistState();
+          playSfx('click');
+          document.getElementById('replaceItemModal').classList.add('hidden');
+          setSceneMode('fridge');
+          notifyToast(`Target: ${item.name}`);
+        });
+        list.appendChild(b);
+      });
+    }
+
+    document.getElementById('applyCustomItemBtn').addEventListener('click', () => {
+      const val = document.getElementById('customItemInput').value.trim();
+      if (!val) return;
+      appData.targetFridgeItem = { id:'custom-'+Date.now(), name: val, emoji:'🧊', location:'Custom Shelf', color:0x38bdf8, hex:'#38bdf8' };
+      persistState();
+      playSfx('success');
+      document.getElementById('replaceItemModal').classList.add('hidden');
+      document.getElementById('customItemInput').value = '';
+      notifyToast(`Custom: ${val}`);
+    });
+
+    function renderSettingsSoundTester() {
+      const container = document.getElementById('soundListContainer');
+      container.innerHTML = '';
+      Object.values(SONGS).forEach(song => {
+        const isSel = appData.activeAlarmSong === song.id;
+        const isPlay = previewSongId === song.id;
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.alignItems = 'center';
+        div.style.justifyContent = 'space-between';
+        div.style.padding = '8px 12px';
+        div.style.background = isSel ? 'rgba(99,102,241,0.15)' : 'var(--card-inner)';
+        div.style.border = `1px solid ${isSel ? 'var(--primary)' : 'var(--border)'}`;
+        div.style.borderRadius = '12px';
+        div.innerHTML = `
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:18px;">${song.icon}</span>
+            <div><p style="font-size:11px; font-weight:800;">${song.name}</p><p style="font-size:9px; color:var(--text-dim);">${song.desc}</p></div>
+          </div>
+          <div style="display:flex; gap:6px;">
+            <button class="btn btn-secondary" data-act="test" style="padding:4px 8px; font-size:10px;">${isPlay ? '⏹ Stop' : '▶ Test'}</button>
+            <button class="btn ${isSel ? 'btn-primary' : 'btn-secondary'}" data-act="use" style="padding:4px 8px; font-size:10px;">${isSel ? '✓' : 'Use'}</button>
+          </div>
+        `;
+        div.querySelector('[data-act="test"]').addEventListener('click', () => togglePreviewSong(song.id));
+        div.querySelector('[data-act="use"]').addEventListener('click', () => {
+          appData.activeAlarmSong = song.id;
+          persistState();
+          playSfx('click');
+        });
+        container.appendChild(div);
+      });
+    }
+
+    const modals = {
+      settings: document.getElementById('settingsModal'),
+      newAlarm: document.getElementById('newAlarmModal'),
+      replace: document.getElementById('replaceItemModal'),
+      overview: document.getElementById('overviewModal')
+    };
+
+    document.getElementById('openSettingsBtn').addEventListener('click', () => { renderSettingsSoundTester(); modals.settings.classList.remove('hidden'); playSfx('click'); });
+    document.getElementById('closeSettingsBtn').addEventListener('click', () => modals.settings.classList.add('hidden'));
+    document.getElementById('doneSettingsBtn').addEventListener('click', () => modals.settings.classList.add('hidden'));
+
+    document.getElementById('openNewAlarmBtn').addEventListener('click', () => { modals.newAlarm.classList.remove('hidden'); playSfx('click'); });
+    document.getElementById('closeNewAlarmModalBtn').addEventListener('click', () => modals.newAlarm.classList.add('hidden'));
+    document.getElementById('cancelNewAlarmBtn').addEventListener('click', () => modals.newAlarm.classList.add('hidden'));
+
+    document.getElementById('openReplaceItemModalBtn').addEventListener('click', () => { renderFridgePresets(); modals.replace.classList.remove('hidden'); playSfx('click'); });
+    document.getElementById('overviewFridgeCardBtn').addEventListener('click', () => { renderFridgePresets(); modals.replace.classList.remove('hidden'); playSfx('click'); });
+    document.getElementById('closeReplaceModalBtn').addEventListener('click', () => modals.replace.classList.add('hidden'));
+
+    document.getElementById('openOverviewBtn').addEventListener('click', () => { modals.overview.classList.remove('hidden'); playSfx('click'); });
+    document.getElementById('closeOverviewModalBtn').addEventListener('click', () => modals.overview.classList.add('hidden'));
+    document.getElementById('dismissOverviewBtn').addEventListener('click', () => modals.overview.classList.add('hidden'));
+
+    document.getElementById('soundToggleHeaderBtn').addEventListener('click', (e) => {
+      appData.soundEnabled = !appData.soundEnabled;
+      e.target.textContent = appData.soundEnabled ? '🔊 Sound On' : '🔇 Muted';
+      if (!appData.soundEnabled) stopAlarmAudio();
+      persistState();
+      playSfx('click');
+    });
+
+    function toggleTheme() {
+      appData.theme = appData.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', appData.theme);
+      document.getElementById('themeToggleBtn').textContent = appData.theme === 'dark' ? '☀️' : '🌙';
+      document.getElementById('metaThemeColor').setAttribute('content', appData.theme === 'dark' ? '#090d1a' : '#eef2ff');
+      persistState();
+      playSfx('click');
+    }
+    document.getElementById('themeToggleBtn').addEventListener('click', toggleTheme);
+    document.getElementById('settingsThemeSwitchBtn').addEventListener('click', toggleTheme);
+
+    document.getElementById('saveWatermarkBtn').addEventListener('click', () => {
+      const val = document.getElementById('customWatermarkInput').value.trim() || 'Jarvis OS';
+      appData.watermark = val;
+      document.getElementById('headerWatermarkText').textContent = val;
+      persistState();
+      playSfx('click');
+      notifyToast('Watermark saved');
+    });
+
+    document.getElementById('copyContactEmailBtn').addEventListener('click', () => {
+      navigator.clipboard?.writeText('naimish.dev7@gmail.com');
+      playSfx('click');
+      notifyToast('📧 Copied email');
+    });
+
+    const navAlarms = document.getElementById('navAlarmsBtn'), navFocus = document.getElementById('navFocusBtn'), navFridge = document.getElementById('navFridgeShortcutBtn');
+    const viewAlarms = document.getElementById('viewAlarms'), viewFocus = document.getElementById('viewFocusTree');
+
+    navAlarms.addEventListener('click', () => {
+      viewAlarms.classList.remove('hidden'); viewFocus.classList.add('hidden');
+      navAlarms.classList.add('active'); navFocus.classList.remove('active');
+      setSceneMode('chrono'); playSfx('click');
+    });
+
+    navFocus.addEventListener('click', () => {
+      viewFocus.classList.remove('hidden'); viewAlarms.classList.add('hidden');
+      navFocus.classList.add('active'); navAlarms.classList.remove('active');
+      setSceneMode('bonsai'); playSfx('click');
+    });
+
+    navFridge.addEventListener('click', () => {
+      viewAlarms.classList.remove('hidden'); viewFocus.classList.add('hidden');
+      navAlarms.classList.add('active'); navFocus.classList.remove('active');
+      setSceneMode('fridge'); playSfx('click');
+    });
+
+    function renderUI() {
+      renderFridgeItemState();
+      renderAlarms();
+      const firstActive = appData.alarms.find(a => a.enabled);
+      if (firstActive) {
+        const { time, ampm } = formatTime12(firstActive.time);
+        document.getElementById('overviewNextAlarm').textContent = `${time} ${ampm}`;
+      } else {
+        document.getElementById('overviewNextAlarm').textContent = 'None';
+      }
+    }
+
+    renderUI();
+    initUnified3D();
+  </script>
+</body>
+</html>
